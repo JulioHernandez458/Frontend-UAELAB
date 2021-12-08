@@ -1,0 +1,73 @@
+<form #laboratorioForm="ngForm" (ngSubmit)="guardar(laboratorioForm)">
+
+  <flash-messages></flash-messages>
+
+  <!--Botones-->
+  <section id="actions" class="py-4 mb-4 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <a routerLink="/laboratorios" class="btn btn-light btn-block">
+            <i class="fas fa-arrow-left"></i> Regresar
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="details">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-header">
+              <h4>Editar Laboratorio</h4>
+            </div>
+            <div class="card-body">
+
+
+              <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input
+                  type="text"
+                  name="nombre"
+                  class="form-control"
+                  #nombre="ngModel"
+                  [(ngModel)]="laboratorio.nombre"
+                  [ngClass]="{'is-invalid': nombre.errors && nombre.touched}"
+                  required>
+                  <div [hidden]="!nombre.errors?.['required']" class="invalid-feedback">
+                    Nombre requerido
+                  </div>
+              </div>
+
+              <div class="form-group">
+                <label for="asignatura">Asignatura</label>
+                <input
+                  type="text"
+                  name="asignatura"
+                  class="form-control"
+                  #asignatura="ngModel"
+                  [(ngModel)]="laboratorio.asignatura"
+                  [ngClass]="{'is-invalid': asignatura.errors && asignatura.touched}"
+                  required>
+                  <div [hidden]="!asignatura.errors?.['required']" class="invalid-feedback">
+                    Asignatura requerida
+                  </div>
+              </div>
+
+
+            </div>
+            <div class="col-md-3">
+              <button type="submit" class="btn btn-success btn-block">
+                <i class="fas fa-check"></i> Guardar Cambios
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</form>
+

@@ -1,0 +1,135 @@
+<form id="form1" class="form-inline my-2 my-lg-0" #buscarForm="ngForm" (ngSubmit)="buscar(buscarForm)">
+  <input
+  class="form-control mr-sm-2"
+  type="text" placeholder="Buscar..."
+  aria-label="search"
+  name="contenido"
+  #contendio="ngModel" [(ngModel)]="contenido">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+</form>
+
+
+<section id="actions" class="py-4 mb-4 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <a href="#" class="btn btn-primary btn-block" data-bs-toggle="modal" data-bs-target="#agregarMaterialModal">
+          <i class="fas fa-plus"></i> Agregar Material
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+ <div class="cards">
+  <div class="item" *ngFor="let biblioteca of biblioteca" >
+   <img src= {{biblioteca.img}}  (click)="abrirDocumento( '' + biblioteca.url)"/>
+   <div>
+    <a class="menu nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="far fa-edit"></i>
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <a class="dropdown-item" routerLink="/biblioteca/editar/{{biblioteca._id}}">Editar</a>
+      <a (click)="eliminar( '' + biblioteca._id )" class="dropdown-item">Eliminar</a>
+    </div>
+     <p (click)="abrirDocumento( '' + biblioteca.url)">{{biblioteca.nombre}}</p>
+   </div>
+  </div>
+ </div>
+
+
+
+
+<!--Agregar Material modal-->
+<div class="modal fade" id="agregarMaterialModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header text-white">
+        <h5 class="modal-title">Agregar Material</h5>
+        <button class="close btn-close btn-close-white" data-bs-dismiss="modal" #botonCerrar>
+        </button>
+
+      </div>
+
+      <flash-messages></flash-messages>
+
+      <form #bibliotecaForm="ngForm" (ngSubmit)="agregar(bibliotecaForm)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input
+              type="text"
+              name="nombre"
+              class="form-control"
+              #nombre="ngModel"
+              [(ngModel)]="biblio.nombre"
+              [ngClass]="{'is-invalid': nombre.errors && nombre.touched}"
+              required>
+              <div [hidden]="!nombre.errors?.['required']" class="invalid-feedback">
+                Nombre requerido
+              </div>
+          </div>
+
+          <div class="form-group">
+            <label for="categoria">categoria</label>
+            <input
+              type="text"
+              name="categoria"
+              class="form-control"
+              #categoria="ngModel"
+              [(ngModel)]="biblio.categoria"
+              [ngClass]="{'is-invalid': categoria.errors && categoria.touched}"
+              required>
+              <div [hidden]="!categoria.errors?.['required']" class="invalid-feedback">
+                Categoria requerida
+              </div>
+          </div>
+
+          <div class="form-group">
+            <label for="anio">Año</label>
+            <input
+              type="text"
+              name="anio"
+              class="form-control"
+              #anio="ngModel"
+              [(ngModel)]="biblio.anio"
+              [ngClass]="{'is-invalid': anio.errors && anio.touched}"
+              required>
+              <div [hidden]="!anio.errors?.['required']" class="invalid-feedback">
+                Año requerido
+              </div>
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="file">Archivo</label>
+            <input
+              type="file"
+              name="file"
+              accept="application/pdf"
+              class="form-control"
+              #file="ngModel"
+              [(ngModel)]="biblio.url"
+              (change)="fileInputbiblioteca($event)"
+              [ngClass]="{'is-invalid': file.errors && file.touched}"
+              required>
+              <div [hidden]="!file.errors?.['required']" class="invalid-feedback">
+                Archivo requerido
+              </div>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+

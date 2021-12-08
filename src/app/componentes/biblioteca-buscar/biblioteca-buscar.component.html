@@ -1,0 +1,39 @@
+<form id="form1" class="form-inline my-2 my-lg-0" #buscarForm="ngForm" (ngSubmit)="buscar(buscarForm)">
+  <input
+  class="form-control mr-sm-2"
+  type="text" placeholder="Buscar..."
+  aria-label="search"
+  name="contenido"
+  #contendio="ngModel" [(ngModel)]="contenido">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+</form>
+
+<!--Botones-->
+<section id="actions" class="py-4 mb-4 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <a routerLink="/biblioteca" class="btn btn-light btn-block">
+          <i class="fas fa-arrow-left"></i> Regresar
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="cards">
+  <div class="item" *ngFor="let biblioteca of biblioteca" >
+   <img src= {{biblioteca.img}}  (click)="abrirDocumento( '' + biblioteca.url)"/>
+   <div>
+    <a class="menu nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="far fa-edit"></i>
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <a class="dropdown-item" routerLink="/biblioteca/editar/{{biblioteca._id}}">Editar</a>
+      <a (click)="eliminar( '' + biblioteca._id )" class="dropdown-item">Eliminar</a>
+    </div>
+     <p (click)="abrirDocumento( '' + biblioteca.url)">{{biblioteca.nombre}}</p>
+   </div>
+  </div>
+ </div>

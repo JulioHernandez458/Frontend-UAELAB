@@ -1,0 +1,24 @@
+
+<div class="text-center p-3" style="color: #ff6600; margin-top: 5rem;">
+  <h2>
+    Ultimos Documentos Agregados
+  </h2>
+  <hr>
+</div>
+
+ <div class="cards">
+  <div class="item" *ngFor="let lista of lista" (click)="abrirDocumento( '' + lista.url)">
+   <img src= {{lista.img}}/>
+   <p>{{lista.nombre}}</p>
+   </div>
+  </div>
+
+  <footer>
+    <div class="text-center p-3" style="background-color: #ff6600; position: absolute; bottom: 0; width: 100%;">
+      <a class="text-white" href="https://portaluae.app" target="_blank">Portal UAE</a>
+    </div>
+  </footer>
+
+
+
+

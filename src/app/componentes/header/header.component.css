@@ -1,0 +1,221 @@
+@media (min-width: 992px) {
+
+  .titulo {
+    color: #fff;
+    width: 200px;
+    margin: 0 0 0 0;
+    font-weight: bold;
+    text-align: center;
+    margin-right: 5px;
+    font-size: 30px;
+  }
+
+  .img-uae {
+    width: 45px;
+    height: 45px;
+    text-align: right;
+    margin-left: 10%;
+  }
+
+
+  .navbar1 {
+    background-color: #ff6600;
+    padding-left: 1%;
+  }
+
+  .navbar1 a,
+  li {
+    color: #fff;
+    border-color: #ff6600;
+    margin-left: 2%;
+    margin-right: 2%;
+    font-size: 18px;
+  }
+
+  .navbar1 li :hover {
+    color: #fff;
+    color: #ff6600;
+  }
+
+  .navbar1 a {
+    background-color: #ff6600;
+  }
+
+  .navbar1 a:hover {
+    background-color: #fff;
+    color: #ff6600;
+  }
+
+  .navbar-toggler {
+    position: relative;
+    font-size: 30px;
+    color: #fff;
+    border-color: #ff6600;
+    margin-left: 5px;
+  }
+
+  .dropdown-menu {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-left: 0;
+    left: -190%;
+  }
+
+  .collapse{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 6%;
+  }
+
+  .dropdown-menu a{
+    background-color: #ff6600;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .dropdown-menu{
+    margin-top: 10%;
+    border-color: #ff6600;
+  }
+
+
+
+  /*
+  #form1 input {
+    width: 300px;
+    margin-right: 10px;
+  }
+
+  #form1 button {
+    margin-right: 10px;
+    border-color: #fff;
+  }
+
+  #form1 button:hover {
+    background-color: #fff;
+    color: #ff6600;
+  }
+
+  #form1 {
+    padding-top: 0px;
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    margin-right: 1%;
+  }
+  */
+
+}
+
+
+@media (max-width: 991px) {
+
+  .titulo {
+    color: #fff;
+    width: auto;
+    margin: 0 0 0 0;
+    font-weight: bold;
+    font-size: 30px;
+    margin-right: 3%;
+  }
+
+  .img-uae {
+    width: 45px;
+    height: 45px;
+    text-align: right;
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+
+
+  .navbar1 {
+    background-color: #ff6600;
+  }
+
+  .navbar1 a,
+  li,
+  button {
+    color: #fff;
+    border-color: #ff6600;
+  }
+
+  .navbar1 li :hover {
+    color: #fff;
+    color: #ff6600;
+  }
+
+  .navbar1 a {
+    background-color: #ff6600;
+  }
+
+  .navbar1 a:hover {
+    background-color: #fff;
+    color: #ff6600;
+  }
+
+  .navbar-toggler {
+    position: relative;
+    font-size: 30px;
+    color: #fff;
+    border-color: #ff6600;
+    margin-left: 5px;
+  }
+
+  .dropdown-menu {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+
+  .collapse {
+    width: auto;
+    text-align: center;
+    font-size: 25px;
+  }
+
+
+
+  .navbar-collapse.collapsing {
+    height: auto;
+    -webkit-transition: left 0.01s ease;
+    -o-transition: left 0.01s ease;
+    -moz-transition: left 0.01s ease;
+    transition: left 0.01s ease;
+    left: -100%;
+  }
+
+  .navbar-collapse.show {
+    left: 0;
+    -webkit-transition: left 0.01s ease-in;
+    -o-transition: left 0.01s ease-in;
+    -moz-transition: left 0.01s ease-in;
+    transition: left 0.01s ease-in;
+  }
+
+  /*
+  #form1 input {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5px;
+  }
+
+  #form1 button {
+    font-size: 15px;
+    border-color: #fff;
+
+  }
+
+  #form1 button:hover {
+    background-color: #fff;
+    color: #ff6600;
+  }
+  */
+
+}

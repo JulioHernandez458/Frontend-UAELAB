@@ -1,0 +1,111 @@
+<form id="form1" class="form-inline my-2 my-lg-0" #buscarForm="ngForm" (ngSubmit)="buscar(buscarForm)">
+  <input
+  class="form-control mr-sm-2"
+  type="text" placeholder="Buscar..."
+  aria-label="search"
+  name="contenido"
+  #contendio="ngModel" [(ngModel)]="contenido">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+</form>
+
+
+<section id="actions" class="py-4 mb-4 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+
+        <a routerLink="/laboratorios" class="btn btn-light btn-block">
+          <i class="fas fa-arrow-left"></i> Regresar
+        </a>
+
+        <a href="#" class="btn btn-primary btn-block btnNuevaGuia" data-bs-toggle="modal" data-bs-target="#agregarMaterialModal">
+          <i class="fas fa-plus"></i> Agregar Guia
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+ <div class="cards">
+  <div class="item" *ngFor="let guia of guias" >
+   <img src= {{guia.img}}  (click)="abrirDocumento( '' + guia.url)"/>
+   <div>
+    <a class="menu nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="far fa-edit"></i>
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <a class="dropdown-item" routerLink="/guias/editar/{{guia._id}}/laboratorio/{{guia.laboratorio_id}}">Editar</a>
+      <a (click)="eliminar( '' + guia._id )" class="dropdown-item">Eliminar</a>
+    </div>
+     <p (click)="abrirDocumento( '' + guia.url)">{{guia.nombre}}</p>
+   </div>
+  </div>
+ </div>
+
+
+
+
+<!--Agregar Material modal-->
+<div class="modal fade" id="agregarMaterialModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header text-white">
+        <h5 class="modal-title">Agregar Material</h5>
+        <button class="close btn-close btn-close-white" data-bs-dismiss="modal" #botonCerrar>
+        </button>
+
+      </div>
+
+      <flash-messages></flash-messages>
+
+      <form #guiaForm="ngForm" (ngSubmit)="agregar(guiaForm)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input
+              type="text"
+              name="nombre"
+              class="form-control"
+              #nombre="ngModel"
+              [(ngModel)]="guia.nombre"
+              [ngClass]="{'is-invalid': nombre.errors && nombre.touched}"
+              required>
+              <div [hidden]="!nombre.errors?.['required']" class="invalid-feedback">
+                Nombre requerido
+              </div>
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="file">Archivo</label>
+            <input
+              type="file"
+              name="file"
+              accept="application/pdf"
+              class="form-control"
+              #file="ngModel"
+              [(ngModel)]="guia.url"
+              (change)="fileInputGuia($event)"
+              [ngClass]="{'is-invalid': file.errors && file.touched}"
+              required>
+              <div [hidden]="!file.errors?.['required']" class="invalid-feedback">
+                Archivo requerido
+              </div>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
