@@ -12,7 +12,6 @@ import { HeaderComponent } from './componentes/header/header.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { BibliotecaComponent } from './componentes/biblioteca/biblioteca.component';
 import { LaboratoriosComponent } from './componentes/laboratorios/laboratorios.component';
-import { AsignaturasComponent } from './componentes/asignaturas/asignaturas.component';
 import { GuiasComponent } from './componentes/guias/guias.component';
 import { LaboratorioService } from 'src/app/servicios/laboratorio-service';
 import { BibliotecaService } from './servicios/biblioteca-service';
@@ -30,7 +29,6 @@ import { GuiaEditarComponent } from './componentes/guia-editar/guia-editar.compo
     InicioComponent,
     BibliotecaComponent,
     LaboratoriosComponent,
-    AsignaturasComponent,
     GuiasComponent,
     BibliotecaEditarComponent,
     BibliotecaBuscarComponent,
